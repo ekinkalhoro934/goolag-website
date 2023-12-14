@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .gif {
+                text-align: center;
+                position: relative;
+                top: 30px;
+            }
+        
+        </style>
+        <title>ЕБЛАГ КОНЧ вебсайт</title>
+    </head>
+    <body>
+        <div class="gif">
+            <video id="myVideo" width="500px" height="500px" autoplay muted loop>
+                <source id="videoSource" src="sun.mp4" type="video/mp4">
+            </video>
+        </div>
+        <script>
+            const videoElement = document.getElementById("myVideo");
+            const cDate = new Date();
+            const currentHour = cDate.getHours();
+
+            function setVideoSource(src) {
+                videoElement.src = src;
+                videoElement.load();
+                videoElement.play();
+            }
+
+            if (currentHour < 6) {
+                setVideoSource("night.mp4");
+            } else if (currentHour < 12) {
+                setVideoSource("morning.mp4");
+            } else if (currentHour < 17) {
+                setVideoSource("sun.mp4");
+            } else {
+                setVideoSource("evening.mp4");
+            }
+        </script>
+    </body>
+</html>
